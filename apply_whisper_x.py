@@ -65,7 +65,7 @@ class ApplyWhisperNodeX:
                 'end': segment['end']
             }
             segments_alignment.append(segment_dict)
-            if if_translate:
+            if if_translate and len(segment['text'].strip()) > 0:
                 # unicode to utf-8
                 translator_dict = {
                     'value': ts.translate_text(query_text=segment['text'].strip(), translator=translator, to_language=to_language).encode('utf-8'),
