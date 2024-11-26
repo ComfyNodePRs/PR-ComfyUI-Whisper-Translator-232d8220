@@ -66,13 +66,15 @@ class ApplyWhisperNodeX:
             }
             segments_alignment.append(segment_dict)
             if if_translate and len(segment['text'].strip()) > 0:
-                # unicode to utf-8
-                translator_dict = {
-                    'value': ts.translate_text(query_text=segment['text'].strip(), translator=translator, to_language=to_language).encode('utf-8'),
-                    'start': segment['start'],
-                    'end': segment['end']
-                }
-                translate_alignments.append(translator_dict)
+                text = segment['text'].strip()
+                if len(text) < 480:
+                    # unicode to utf-8
+                    translator_dict = {
+                        'value': ts.translate_text(query_text=text, translator=translator, to_language=to_language).encode('utf-8'),
+                        'start': segment['start'],
+                        'end': segment['end']
+                    }
+                    translate_alignments.append(translator_dict)
 
             # create word alignments
             for word in segment["words"]:

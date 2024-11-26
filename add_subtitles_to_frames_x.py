@@ -60,7 +60,7 @@ class AddSubtitlesToFramesNodeX:
     CATEGORY = "whisper"
 
     def add_subtitles_to_frames(self, images, alignment, font_family, font_size, font_color, x_position, y_position,
-                                center_x, center_y, video_fps, fill_font_bg, font_bg_color, start_frame, meta_batch):
+                                center_x, center_y, video_fps, fill_font_bg, font_bg_color, start_frame, meta_batch=None):
         if meta_batch is not None:
             prompt_queue = server.PromptServer.instance.prompt_queue
             currently_running = prompt_queue.currently_running
