@@ -6,6 +6,8 @@
 
 If you like the project, please give me a star! ⭐
 
+contact： civen_cn@163.com
+
 ## Description
 This is a ComfyUI node that allows you to translate subtitles using the Whisper.
 
